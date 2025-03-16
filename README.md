@@ -31,12 +31,6 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
 - **Material You (Monet)**: Dynamic theming that adapts to your device's wallpaper colors
 - **Responsive Layout**: Optimized for various screen sizes and orientations
 
-## 📱 Screenshots
-
-![1a](https://github.com/user-attachments/assets/91280828-0070-406c-85df-2236f6cf8c35)
-![2a](https://github.com/user-attachments/assets/986c6565-f347-42be-b4de-84a1a05efbc0)
-
-
 ## 🛠️ Technology Stack
 
 - **Language**: Kotlin
@@ -117,6 +111,11 @@ Each detection function accesses the Supabase database to compare against known 
 - OpenRouter API calls are made with minimal data sharing like only raw text that you copied for autofill
 - No sensitive user information is stored or transmitted
 - Database queries are anonymized
+
+## 📱 Screenshots
+
+![1a](https://github.com/user-attachments/assets/91280828-0070-406c-85df-2236f6cf8c35)
+![2a](https://github.com/user-attachments/assets/986c6565-f347-42be-b4de-84a1a05efbc0)
 
 ## 📄 License
 
