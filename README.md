@@ -127,7 +127,7 @@ For any issues or feature requests, please open an issue or reach out at:
 - X: [daemon_nitesh](https://x.com/daemon_nitesh)
 - Insta: [mustbe_daemon](https://www.instagram.com/mustbe_daemon)
 - LinkedIn: [daemon001](https://www.linkedin.com/in/daemon001)
-- Email: [nitesh4work@gamil.com](nitesh4work@gamil.com)
+- Email: nitesh4work@gamil.com
 
 ---
 
