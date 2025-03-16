@@ -43,7 +43,7 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
 ## ⚙️ How It Works
 
 1. **Database Synchronization**:
-   - The app requires internet connection to fetch the latest fake job database from Supabase
+   - Automatically fetch the latest database at every startup. The app requires internet connection to fetch the latest fake job database from Supabase
    - Database indicators show sync status at top bar like, ⭕ = fail to load database, 🌐 = Database loaded to the app
 
 2. **Job Analysis Process**:
@@ -52,7 +52,7 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
    - Results show confidence score and specific suspicious elements
 
 3. **Smart Autofill Workflow**:
-   - Tap the add icon at the top bar to open autofill dilogbox
+   - Tap the <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/></svg> icon at the top bar to open autofill dilogbox
    - Copy job listing text from any source
    - Paste raw text into the app
    - AI automatically extracts and categorizes information
