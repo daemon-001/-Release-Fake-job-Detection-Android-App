@@ -1,148 +1,120 @@
-# 🌟 AI Fake Job Detector  
-**Built with Kotlin and Jetpack Compose**  
+# AI Fake Job Detector
 
-## 🚀 Overview  
-AI Fake Job Detector is a powerful Android app that helps users detect fake job postings using anomaly detection. The app dynamically fetches live job data from a Supabase database and analyzes job details using OpenRouter API to identify suspicious patterns.  
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Platform](https://img.shields.io/badge/Platform-Android-green.svg)
+![Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-purple.svg)
 
----
+An Android application built with Kotlin and Jetpack Compose that helps users identify potentially fraudulent job listings through advanced anomaly detection. The app leverages a comprehensive fake job database hosted on Supabase and integrates with OpenRouter API for intelligent text analysis and form filling.
 
-## ✨ Key Features  
-### 🔍 **Anomaly Detection for Fake Job Identification**  
-- Uses AI-based anomaly detection to analyze job data and identify potential fraud.  
-- Suspicious email domains and salary inconsistencies are flagged automatically.  
+## 📋 Features
 
-### 📝 **Smart Autofill with AI**  
-- Copy and paste raw text from any webpage (even those that restrict web scraping).  
-- The OpenRouter API processes the text and automatically fills respective fields like:  
-  - **Job Title**  
-  - **Salary**  
-  - **Job Requirements**  
-  - **Job Description**  
+### Fake Job Detection
+- **Anomaly Detection Algorithm**: Analyzes job listings for suspicious patterns and red flags
+- **Real-time Database Updates**: Syncs with Supabase to ensure the detection system stays current with the latest scam patterns
+- **Comprehensive Analysis**: Evaluates multiple factors including salary ranges, job requirements, communication channels, and more
 
-### 🌐 **Live Data Sync from Supabase**  
-- Requires an internet connection to fetch the latest job data from the Supabase database.  
-- Automatically updates the local database with the latest job indicators.  
+### Smart Autofill
+- **Copy & Paste Functionality**: Simply copy text from any job listing webpage and paste it into the app
+- **AI-Powered Text Analysis**: Leverages OpenRouter API to categorize and extract relevant information from raw text
+- **Automatic Field Population**: Instantly fills in structured fields including:
+  - Job Title
+  - Salary Information
+  - Job Requirements
+  - Job Description
+  - Company Details
 
-### 🎨 **Material You Theming**  
-- Built with Material 3 (Monet) theming.  
-- Automatically adapts the app's color scheme to match the user's device theme.  
+### Admin Features
+- **Database Management**: Admin login tab for authorized personnel
+- **Reset Functionality**: Button to reset all fields and load the latest database
+- **Email Domain Analysis**: Identifies suspicious email domains commonly associated with scams
 
-### 👨‍💻 **Admin Panel for Database Management**  
-- Secure admin login for managing job data.  
-- **Reset Button** – Clears all fields and loads the latest data from the server.  
+### User Interface
+- **Material Design 3**: Modern, clean interface following latest Android design guidelines
+- **Material You (Monet)**: Dynamic theming that adapts to your device's wallpaper colors
+- **Responsive Layout**: Optimized for various screen sizes and orientations
 
-### 📧 **Domain-based Email Detection**  
-- AI will analyze job emails for suspicious domains.  
-- If an email or salary is missing, the AI will skip those fields during analysis.  
+## 📱 Screenshots
 
----
+[Screenshots to be added]
 
-## 🧠 **Fake Job Detection Logic**  
-The app’s AI-based detection engine evaluates job listings using the following checks:  
+## 🛠️ Technology Stack
 
-```kotlin
-fun detectFakeJob(
-    jobTitle: String,
-    salary: String,
-    email: String,
-    jobDescription: String,
-    jobRequirement: String,
-    context: Context
-): List<String> {
-    val risks = mutableListOf<String>()
+- **Language**: Kotlin
+- **UI Framework**: Jetpack Compose
+- **Architecture**: MVVM (Model-View-ViewModel)
+- **Database**: Supabase
+- **AI Integration**: OpenRouter API
+- **Theming**: Material You with Monet dynamic color system
 
-    if (checkJobTitle(jobTitle, context)) risks.add("Suspicious job title")
-    if (checkUnrealisticSalary(salary)) risks.add("Unrealistic salary")
-    if (checkSuspiciousEmail(email, context)) risks.add("Suspicious contact email domain")
-    if (checkBuzzwords(jobDescription, context)) risks.add("Contains suspicious buzzwords or promises")
-    if (checkUrgencyPhrases(jobDescription, context)) risks.add("High-pressure or urgency tactics")
-    if (checkRedFlags(jobDescription, context)) risks.add("Suspicious company indicators")
-    if (checkPaymentRequest(jobDescription, context)) risks.add("Found payment request")
-    if (checkJobRequirements(jobRequirement, context)) risks.add("Suspicious job requirements")
-    if (checkGenericDescription(jobDescription)) risks.add("Overly generic or short job description")
-    if (checkMinimalRequirements(jobRequirement)) risks.add("Minimal or vague job requirements")
+## ⚙️ How It Works
 
-    return risks
-}
-```
+1. **Database Synchronization**:
+   - The app requires internet connection to fetch the latest fake job database from Supabase
+   - Database indicators show sync status
 
-### ✅ **Detection Criteria:**  
-1. **Suspicious Job Title** – Unusual or misleading job titles.  
-2. **Unrealistic Salary** – Salary far above or below market standards.  
-3. **Suspicious Email Domain** – Contact email from untrustworthy domains.  
-4. **Buzzwords and Promises** – Over-the-top language and unrealistic promises.  
-5. **Urgency Tactics** – High-pressure phrases like "Immediate hire" or "Apply now."  
-6. **Suspicious Company Indicators** – Missing or suspicious company details.  
-7. **Payment Requests** – Asking for payment for training or application.  
-8. **Unusual Job Requirements** – Vague, contradictory, or suspicious job criteria.  
-9. **Generic Job Description** – Overly simple or short descriptions.  
-10. **Minimal Requirements** – Lack of specific qualifications or experience.  
+2. **Job Analysis Process**:
+   - Enter job details manually or use the autofill feature
+   - The app compares the listing against known patterns in the fake job database
+   - Results show confidence score and specific suspicious elements
 
----
+3. **Smart Autofill Workflow**:
+   - Copy job listing text from any source
+   - Paste raw text into the app
+   - AI automatically extracts and categorizes information
+   - Fields are populated with structured data for analysis
 
-## 📸 Screenshots  
-*Add screenshots or GIFs here to demonstrate the app in action.*  
+4. **Admin Functions**:
+   - Authorized users can access database management tools
+   - Email domain analysis flags potentially suspicious communication channels
+   - Reset button to restore default settings and refresh database
 
----
+## 📥 Installation
 
-## 🛠️ **Tech Stack**  
-- **Kotlin** – Primary language  
-- **Jetpack Compose** – Modern UI toolkit  
-- **Supabase** – Backend database  
-- **OpenRouter API** – AI-powered data processing  
-- **Material 3** – For dynamic theming  
+1. Download the latest APK from the [Releases](https://github.com/yourusername/ai-fake-job-detector/releases) section
+2. Enable installation from unknown sources in your device settings
+3. Install the app and grant required permissions
 
----
+## 🔨 Building From Source
 
-## 🚀 **Getting Started**  
-### Prerequisites  
-- Android Studio (latest version)  
-- Supabase account and API key  
-- OpenRouter API key  
-
-### Installation  
-1. **Clone the repository**  
 ```bash
-git clone https://github.com/your-username/ai-fake-job-detector.git
+# Clone the repository
+git clone https://github.com/yourusername/ai-fake-job-detector.git
+
+# Navigate to the project directory
+cd ai-fake-job-detector
+
+# Build the app
+./gradlew build
+
+# Install on connected device
+./gradlew installDebug
 ```
-2. **Open in Android Studio**  
-3. **Set up Supabase and OpenRouter API keys**  
-4. **Build and Run**  
+
+## 🔒 Privacy
+
+- All analysis happens on-device when possible
+- OpenRouter API calls are made with minimal data sharing
+- No sensitive user information is stored or transmitted
+- Database queries are anonymized
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📬 Contact
+
+Project Link: [https://github.com/yourusername/ai-fake-job-detector](https://github.com/yourusername/ai-fake-job-detector)
 
 ---
 
-## 📌 **How to Use**  
-1. Open the app.  
-2. Paste the raw text from a job listing.  
-3. Tap the **Autofill** button – AI will extract and populate the fields.  
-4. Review the job details and let the AI detect any suspicious data.  
-5. Admins can log in to update the database or reset fields.  
-
----
-
-## 🏆 **Why This App Stands Out**  
-✅ Real-time data analysis with anomaly detection  
-✅ AI-powered autofill from unstructured text  
-✅ Domain-based email fraud detection  
-✅ Adaptive UI with Material You  
-
----
-
-## 🤝 **Contributing**  
-Contributions are welcome!  
-1. Fork the repo  
-2. Create a new branch (`git checkout -b feature/your-feature`)  
-3. Commit changes (`git commit -m "Add your feature"`)  
-4. Push to the branch (`git push origin feature/your-feature`)  
-5. Open a Pull Request  
-
----
-
-## 📝 **License**  
-This project is licensed under the [MIT License](LICENSE).  
-
----
-
-## 📧 **Contact**  
-For any issues or feature requests, please open an issue or reach out at: [your-email@example.com](mailto:your-email@example.com)  
-
+Made with ❤️ by [Your Name]
