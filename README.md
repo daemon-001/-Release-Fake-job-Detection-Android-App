@@ -1,6 +1,5 @@
 # AI Fake Job Detector
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-Android-green.svg)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-purple.svg)
 
@@ -11,22 +10,21 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
 ### Fake Job Detection
 - **Anomaly Detection Algorithm**: Analyzes job listings for suspicious patterns and red flags
 - **Real-time Database Updates**: Syncs with Supabase to ensure the detection system stays current with the latest scam patterns
-- **Comprehensive Analysis**: Evaluates multiple factors including salary ranges, job requirements, communication channels, and more
+- **Comprehensive Analysis**: Evaluates multiple factors including title, salary ranges, contact email, job description, job requirements and more
 
 ### Smart Autofill
-- **Copy & Paste Functionality**: Simply copy text from any job listing webpage and paste it into the app
+- **Copy & Paste Functionality**: Simply copy all text from any job listing webpage and paste it into the app's autofill option
 - **AI-Powered Text Analysis**: Leverages OpenRouter API to categorize and extract relevant information from raw text
 - **Automatic Field Population**: Instantly fills in structured fields including:
   - Job Title
   - Salary Information
+  - Contact Email
   - Job Requirements
   - Job Description
-  - Company Details
 
 ### Admin Features
 - **Database Management**: Admin login tab for authorized personnel
-- **Reset Functionality**: Button to reset all fields and load the latest database
-- **Email Domain Analysis**: Identifies suspicious email domains commonly associated with scams
+- **Perform CRUD operation in Database**: Admin can add more data or new fraud pattern or delete existing data
 
 ### User Interface
 - **Material Design 3**: Modern, clean interface following latest Android design guidelines
@@ -35,7 +33,9 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
 
 ## 📱 Screenshots
 
-[Screenshots to be added]
+![1a](https://github.com/user-attachments/assets/91280828-0070-406c-85df-2236f6cf8c35)
+![2a](https://github.com/user-attachments/assets/986c6565-f347-42be-b4de-84a1a05efbc0)
+
 
 ## 🛠️ Technology Stack
 
@@ -50,7 +50,7 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
 
 1. **Database Synchronization**:
    - The app requires internet connection to fetch the latest fake job database from Supabase
-   - Database indicators show sync status
+   - Database indicators show sync status at top bar like, ⭕ = fail to load database, 🌐 = Database loaded to the app
 
 2. **Job Analysis Process**:
    - Enter job details manually or use the autofill feature
@@ -58,15 +58,52 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
    - Results show confidence score and specific suspicious elements
 
 3. **Smart Autofill Workflow**:
+   - Tap the add icon at the top bar to open autofill dilogbox
    - Copy job listing text from any source
    - Paste raw text into the app
    - AI automatically extracts and categorizes information
    - Fields are populated with structured data for analysis
 
-4. **Admin Functions**:
-   - Authorized users can access database management tools
-   - Email domain analysis flags potentially suspicious communication channels
-   - Reset button to restore default settings and refresh database
+4. **Refresh Database and Inputfields**:
+   - Tap the reload icon at the top bar
+   - Refetch the latest database from the supabase server
+   - All input fields are reset to initial state 
+
+6. **Admin Functions**:
+   - Tap the gear icon to goto the admin login tab and fill username and pwd
+   - Authorized users can access database management tools like add or remove database item
+
+## 🔍 Detection Algorithm
+
+The app uses a sophisticated multi-criteria detection system that flags potential scams based on the following checks:
+
+```kotlin
+if check_job_title() risks.add("Suspicious job title")
+if check_unrealistic_salary() risks.add("Unrealistic salary")
+if check_suspicious_email() risks.add("Suspicious contact email domain")
+if check_buzzwords() risks.add("Contains suspicious buzzwords or promises")
+if check_urgency_phrases() risks.add("High-pressure or urgency tactics")
+if check_red_flags() risks.add("Suspicious company indicators")
+if check_payment_request() risks.add("Found payment request")
+if check_job_requirements() risks.add("Suspicious job requirements")
+if check_generic_discription() risks.add("Overly generic or short job description")
+if check_minimal_requirements() risks.add("Minimal or vague job requirements")
+```
+
+### Detection Criteria
+
+- **Suspicious Job Titles**: Flags titles that match patterns commonly used in scam listings
+- **Unrealistic Salary**: Identifies compensation that's significantly above market rates for the position
+- **Suspicious Email Domains**: Checks contact emails against a database of known scam domains
+- **Buzzword Analysis**: Detects common phrases used in fraudulent listings like "get rich quick" or "unlimited earning potential"
+- **Urgency Tactics**: Identifies high-pressure language designed to rush decision-making
+- **Company Red Flags**: Analyzes for suspicious company indicators like lack of verifiable information
+- **Payment Requests**: Flags listings that ask for payment, fees, or financial information
+- **Suspicious Requirements**: Detects unusual or inappropriate job requirements
+- **Generic Descriptions**: Identifies vague or unusually short job descriptions
+- **Minimal Requirements**: Flags listings with suspiciously few or vague qualifications
+
+Each detection function accesses the Supabase database to compare against known scam patterns and uses contextual analysis to determine risk levels.
 
 ## 📥 Installation
 
@@ -74,38 +111,12 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
 2. Enable installation from unknown sources in your device settings
 3. Install the app and grant required permissions
 
-## 🔨 Building From Source
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/ai-fake-job-detector.git
-
-# Navigate to the project directory
-cd ai-fake-job-detector
-
-# Build the app
-./gradlew build
-
-# Install on connected device
-./gradlew installDebug
-```
-
 ## 🔒 Privacy
 
-- All analysis happens on-device when possible
-- OpenRouter API calls are made with minimal data sharing
+- All analysis happens on-device
+- OpenRouter API calls are made with minimal data sharing like only raw text that you copied for autofill
 - No sensitive user information is stored or transmitted
 - Database queries are anonymized
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📄 License
 
@@ -117,4 +128,4 @@ Project Link: [https://github.com/yourusername/ai-fake-job-detector](https://git
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by [Nitesh](https://github.com/daemon-001)
