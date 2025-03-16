@@ -101,7 +101,7 @@ Each detection function accesses the Supabase database to compare against known 
 
 ## 📥 Installation
 
-1. Download the latest APK from the [Releases](https://github.com/yourusername/ai-fake-job-detector/releases) section
+1. Download the latest APK from the [Releases](https://github.com/daemon-001/RELEASE-Fake-Job-Detector-Android-App/releases) section
 2. Enable installation from unknown sources in your device settings
 3. Install the app and grant required permissions
 
