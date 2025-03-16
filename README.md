@@ -123,7 +123,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📬 Contact
 
-Project Link: [https://github.com/yourusername/ai-fake-job-detector](https://github.com/yourusername/ai-fake-job-detector)
+For any issues or feature requests, please open an issue or reach out at: nitesh4work@gamil.com
 
 ---
 
