@@ -52,14 +52,14 @@ An Android application built with Kotlin and Jetpack Compose that helps users id
    - Results show confidence score and specific suspicious elements
 
 3. **Smart Autofill Workflow**:
-   - Tap the  icon at the top bar to open autofill dilogbox
+   - Tap the add icon at the top bar to open autofill dilogbox
    - Copy job listing text from any source
    - Paste raw text into the app
    - AI automatically extracts and categorizes information
    - Fields are populated with structured data for analysis
 
 4. **Refresh Database and Inputfields**:
-   - Tap the ![reload](https://github.com/user-attachments/assets/260f18fe-9051-4529-ba2f-1c91471ccfd2) icon at the top bar
+   - Tap the reload icon at the top bar
    - Refetch the latest database from the supabase server
    - All input fields are reset to initial state 
 
